@@ -8,13 +8,20 @@ import { styled } from '@mui/material/styles';
 const Alert = MuiAlert;
 
 const CenteredContainer = styled('div')({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh', // Asegurar que ocupe al menos la altura de la viewport
-    padding: '0 32px',
-    boxSizing: 'border-box',
-  });
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start', // Alineación vertical superior
+  alignItems: 'center',
+  padding: '0 32px',
+  boxSizing: 'border-box',
+  width: '100%',
+  maxWidth: '400px', // Asegura que el card tenga un tamaño máximo
+});
+
+const SnackbarContainer = styled('div')({
+  marginTop: '16px', // Espacio para colocar la Snackbar justo debajo del formulario
+  width: '100%',
+});
 
 export default function PasswordChecker() {
   const [password, setPassword] = useState('');
@@ -22,7 +29,6 @@ export default function PasswordChecker() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const isPasswordStrong = (password: string) => {
-    // La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial
     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return strongPasswordRegex.test(password);
   };
@@ -43,7 +49,7 @@ export default function PasswordChecker() {
 
   return (
     <CenteredContainer>
-      <Card sx={{ width: '100%', maxWidth: 400 }}>
+      <Card>
         <CardHeader title="Verificador de Contraseña" />
         <CardContent>
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -58,24 +64,27 @@ export default function PasswordChecker() {
             <Button type="submit" variant="contained" color="primary" fullWidth>
               Verificar Contraseña
             </Button>
+            {/* Añadir el contenedor para la Snackbar aquí */}
+            <SnackbarContainer>
+              {message && (
+                <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                  <Alert onClose={handleCloseSnackbar} severity={message.isStrong ? 'success' : 'error'}>
+                    {message.isStrong ? (
+                      <>
+                        <CheckCircle sx={{ mr: 1 }} />
+                        {message.text}
+                      </>
+                    ) : (
+                      <>
+                        <Cancel sx={{ mr: 1 }} />
+                        {message.text}
+                      </>
+                    )}
+                  </Alert>
+                </Snackbar>
+              )}
+            </SnackbarContainer>
           </form>
-          {message && (
-            <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-              <Alert onClose={handleCloseSnackbar} severity={message.isStrong ? 'success' : 'error'}>
-                {message.isStrong ? (
-                  <>
-                    <CheckCircle sx={{ mr: 1 }} />
-                    {message.text}
-                  </>
-                ) : (
-                  <>
-                    <Cancel sx={{ mr: 1 }} />
-                    {message.text}
-                  </>
-                )}
-              </Alert>
-            </Snackbar>
-          )}
         </CardContent>
       </Card>
     </CenteredContainer>
