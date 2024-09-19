@@ -1,0 +1,17 @@
+/* index.css o App.css */
+body {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* O la fuente que prefieras */
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
