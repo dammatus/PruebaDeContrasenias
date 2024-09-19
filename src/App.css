@@ -1,11 +1,47 @@
 /* App.css */
+body {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* O la fuente que prefieras */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alineación superior */
+  min-height: 100vh;
+}
 
 .app-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start; /* Alineación hacia el inicio */
   align-items: center;
-  height: 100vh; /* Hace que el contenedor tenga el 100% de la altura de la ventana */
-  padding: 0 16px; /* Espacio horizontal para pantallas pequeñas */
-  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Para ocupar todo el ancho disponible */
+  max-width: 800px; /* Ancho máximo para el contenedor */
 }
 
+h1 {
+  font-size: 2.5rem; /* Tamaño de fuente más grande */
+  margin-bottom: 16px; /* Espacio debajo del título */
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 24px; /* Espacio debajo del párrafo */
+}
+
+ol {
+  text-align: left; /* Alinear la lista a la izquierda */
+  margin: 0 auto 24px auto; /* Espacio abajo */
+  max-width: 500px; /* Máximo ancho para la lista */
+}
+
+.card-container {
+  width: 100%;
+  max-width: 400px; /* Tamaño máximo del card */
+  margin-top: 20px; /* Espacio arriba del card */
+}
