@@ -1,5 +1,3 @@
-Aquí tienes el `README.md` actualizado, incluyendo la nota sobre la universidad:
-
 ```markdown
 # Password Checker
 
@@ -86,5 +84,3 @@ Este proyecto está bajo la Licencia MIT. Puedes usarlo y modificarlo según tus
 
 Este proyecto es un trabajo realizado por alumnos de la **Universidad Nacional de San Luis (UNSL)** en la materia **Ciberseguridad**. Fue creado con fines educativos para ser utilizado en la promoción de carreras 2024 de la universidad.
 ```
-
-Si necesitas más cambios o detalles adicionales, no dudes en decírmelo.
